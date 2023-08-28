@@ -1,0 +1,26 @@
+def solve():
+    c,m,d=[int(x) for x in input().split()]
+    ans=0
+    #first make use of all dummys
+    mini=min(c,m,d)
+    ans+=mini
+    c=c-mini
+    m=m-mini
+    d=d-mini
+    while(c>0 and m>0):
+        if c>=m and c>=2 and m>=1:
+            ans+=1
+            c-=2
+            m-=1
+        elif m>c and m>=2 and c>=1:
+            ans+=1
+            c-=1
+            m-=2
+            
+    return int(ans)
+        
+
+if __name__=="__main__":
+    t=int(input())
+    for _ in range(t):
+        print(solve())
