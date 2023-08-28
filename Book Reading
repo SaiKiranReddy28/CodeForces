@@ -1,0 +1,24 @@
+def solve():
+    n,m=[int(x) for x in input().split()]
+    divides=n//m
+    d={}
+    s=0
+    for i in range(1,10):
+        num=m*i
+        num=str(num)
+        last_digit=int(num[-1])
+        s+=last_digit
+        d[i]=last_digit
+    
+    quo=divides//10
+    ans=quo*s
+    divides=divides%10
+    for i in range(1,divides+1):
+        ans+=d[i]
+    return ans
+    
+    
+if __name__=="__main__":
+    t=int(input())
+    for _ in range(t):
+        print(solve())
